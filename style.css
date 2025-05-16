@@ -1,0 +1,114 @@
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 5px #00f2ff44, 0 0 10px #00f2ff33;
+  }
+
+  50% {
+    text-shadow: 0 0 12px #00f2ff66, 0 0 24px #00f2ff55;
+  }
+}
+
+.neon-soft {
+  color: #00f2ff;
+  text-shadow: 0 0 5px #00f2ff22, 0 0 10px #00f2ff33;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px #00f2ff33, 0 0 20px #00f2ff22;
+  }
+
+  50% {
+    box-shadow: 0 0 18px #00f2ff55, 0 0 28px #00f2ff33;
+  }
+}
+
+.glow-box {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* Bloco Investimento - visual mais moderno */
+.investimento-box {
+  background-color: #0f172a;
+  border: 2px solid #00ffff33;
+  box-shadow: 0 0 20px #00ffff33;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.investimento-box:hover {
+  box-shadow: 0 0 35px #00ffff88;
+  transform: scale(1.01);
+}
+
+.investimento-preco {
+  border: 1px solid #00ffff55;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.investimento-preco p {
+  margin: 0.5rem 0;
+}
+
+.investimento-preco .de {
+  text-decoration: line-through;
+  color: #f87171;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.investimento-preco .parcelado {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.investimento-preco .avista {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.investimento-beneficios {
+  text-align: left;
+  font-size: 0.875rem;
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+.investimento-beneficios li::before {
+  content: "✔️";
+  margin-right: 0.5rem;
+  color: #22d3ee;
+}
+
+.investimento-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #06b6d4;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.investimento-btn:hover {
+  background-color: #22d3ee;
+}

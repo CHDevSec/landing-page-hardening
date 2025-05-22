@@ -90,6 +90,24 @@
       </div>
     </div>
   </section>
+  <section class="py-16 px-6 bg-[#0d1117] border-t border-cyan-800 text-center reveal">
+    <h2 class="text-3xl font-bold mb-6 neon-text animate-pulse-glow">Impacto do Projeto</h2>
+    <p class="text-gray-400 mb-12">Resultados reais obtidos pela comunidade que já aplicou o conteúdo:</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="bg-[#0f172a] p-8 rounded-lg border border-cyan-700 shadow-md">
+        <h3 class="text-4xl font-bold text-cyan-400"><span id="contador-alunos">0</span></h3>
+        <p class="text-gray-300 mt-2">Alunos impactados</p>
+      </div>
+      <div class="bg-[#0f172a] p-8 rounded-lg border border-cyan-700 shadow-md">
+        <h3 class="text-4xl font-bold text-cyan-400"><span id="contador-execucoes">0</span></h3>
+        <p class="text-gray-300 mt-2">Execuções do projeto</p>
+      </div>
+      <div class="bg-[#0f172a] p-8 rounded-lg border border-cyan-700 shadow-md">
+        <h3 class="text-4xl font-bold text-cyan-400"><span id="contador-reducao">0</span>%</h3>
+        <p class="text-gray-300 mt-2">Redução média de vulnerabilidades</p>
+      </div>
+    </div>
+  </section>
   <!-- Carrossel animado do e-book -->
   <section class="py-16 px-6 reveal bg-[#0d1117] border-t border-cyan-900 text-center">
     <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 reveal">Veja como é por dentro do e-book</h2>
@@ -270,6 +288,49 @@
     © 2025 Caio Henrique – Todos os direitos reservados
   </footer>
   <script src="motion.js"></script>
+  <script>
+    function animateValue(id, start, end, duration) {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+
+      function step(timestamp) {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const currentValue = Math.round(progress * (end - start) + start);
+        obj.innerText = currentValue.toLocaleString("pt-BR");
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      }
+
+      window.requestAnimationFrame(step);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      let iniciado = false;
+
+      function checkScroll() {
+        const alvo = document.getElementById('contador-alunos');
+        if (!alvo || iniciado) return;
+
+        const top = alvo.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (top < windowHeight - 100) {
+          iniciado = true;
+          animateValue("contador-alunos", 0, 58, 3000);
+          animateValue("contador-execucoes", 0, 500, 3500);
+          animateValue("contador-reducao", 0, 48, 3200);
+        }
+      }
+
+      window.addEventListener("scroll", checkScroll);
+
+      setTimeout(() => {
+        checkScroll();
+      }, 1200);
+    });
+  </script>
 </body>
 
 </html>
